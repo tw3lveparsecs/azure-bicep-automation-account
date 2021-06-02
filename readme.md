@@ -1,11 +1,13 @@
 # Automation Account
 This module will create an automation account with a system assigned managed identity and import modules and runbooks.
 
+You can also optionally enable diagnostics logs and a delete lock.
+
 ## Usage
 
 ### Example 1 - Automation account with no modules or runbooks imported
 ``` bicep
-param deploymentName string = concat('automationAccount', utcNow())
+param deploymentName string = 'automationAccount${utcNow()}'
 
 module automationAccount '../azure-bicep-automation-account/main.bicep' = {
   name: deploymentName  
@@ -17,7 +19,7 @@ module automationAccount '../azure-bicep-automation-account/main.bicep' = {
 
 ### Example 2 - Automation account with modules imported
 ``` bicep
-param deploymentName string = concat('automationAccount', utcNow())
+param deploymentName string = 'automationAccount${utcNow()}'
 
 module automationAccount '../azure-bicep-automation-account/main.bicep' = {
   name: deploymentName  
@@ -36,7 +38,7 @@ module automationAccount '../azure-bicep-automation-account/main.bicep' = {
 
 ### Example 3 - Automation account with modules and runbook imported
 ``` bicep
-param deploymentName string = concat('automationAccount', utcNow())
+param deploymentName string = 'automationAccount${utcNow()}'
 
 module automationAccount '../azure-bicep-automation-account/main.bicep' = {
   name: deploymentName  
@@ -58,6 +60,24 @@ module automationAccount '../azure-bicep-automation-account/main.bicep' = {
         logVerbose: false
       }
     ]        
+  }
+}
+```
+
+### Example 4 - Automation account with diagnostic logs and delete lock enabled
+``` bicep
+param deploymentName string = 'automationAccount${utcNow()}'
+
+module automationAccount '../azure-bicep-automation-account/main.bicep' = {
+  name: deploymentName  
+  params: {
+    name: 'MyAutomationAccount'
+    enableDiagnostics: true
+    enableDeleteLock: true
+    diagnosticStorageAccountName: 'MyDiagnosticStorageAccount'
+    diagnosticStorageAccountResourceGroup: 'MyDiagnosticStorageResourceGroup'
+    logAnalyticsResourceGroup: 'MyLogAnalyticsResourceGroup'
+    logAnalyticsWorkspaceName: 'MyLogAnalyticsWorkspace'    
   }
 }
 ```
