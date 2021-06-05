@@ -9,7 +9,7 @@ You can also optionally enable diagnostics logs and a delete lock.
 ``` bicep
 param deploymentName string = 'automationAccount${utcNow()}'
 
-module automationAccount '../azure-bicep-automation-account/main.bicep' = {
+module automationAccount './main.bicep' = {
   name: deploymentName  
   params: {
     name: 'MyAutomationAccount'
@@ -21,7 +21,7 @@ module automationAccount '../azure-bicep-automation-account/main.bicep' = {
 ``` bicep
 param deploymentName string = 'automationAccount${utcNow()}'
 
-module automationAccount '../azure-bicep-automation-account/main.bicep' = {
+module automationAccount './main.bicep' = {
   name: deploymentName  
   params: {
     name: 'MyAutomationAccount'
@@ -40,7 +40,7 @@ module automationAccount '../azure-bicep-automation-account/main.bicep' = {
 ``` bicep
 param deploymentName string = 'automationAccount${utcNow()}'
 
-module automationAccount '../azure-bicep-automation-account/main.bicep' = {
+module automationAccount './main.bicep' = {
   name: deploymentName  
   params: {
     name: 'MyAutomationAccount'
@@ -68,7 +68,7 @@ module automationAccount '../azure-bicep-automation-account/main.bicep' = {
 ``` bicep
 param deploymentName string = 'automationAccount${utcNow()}'
 
-module automationAccount '../azure-bicep-automation-account/main.bicep' = {
+module automationAccount './main.bicep' = {
   name: deploymentName  
   params: {
     name: 'MyAutomationAccount'
