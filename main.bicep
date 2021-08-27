@@ -131,4 +131,6 @@ resource diagnostics 'microsoft.insights/diagnosticSettings@2017-05-01-preview' 
   }
 }
 
+output name string = automationAccount.name
+output id string = automationAccount.id
 output systemIdentityPrincipalId string = automationAccount.identity.principalId
